@@ -9,13 +9,19 @@ import UIKit
 
 class DatePickerViewController: UIViewController {
 
+    @IBOutlet weak var displayDate: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func datePickAction(_ sender: UIDatePicker) {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy/MMM/dd HH:mm"
+        displayDate.text = dateFormater.string(from: sender.date)
+    }
+    
     /*
     // MARK: - Navigation
 
